@@ -11,7 +11,7 @@ public class DroneAssignment {
         System.out.println("Initial Status:");
         System.out.println("Altitude: " + altitude + " meters");
         System.out.println("Battery: " + battery + "%");
-        System.out.println("Photos  :" + photos);
+        System.out.println("Photos:  " + photos);
 
         int displayAltitude = (int) altitude;
         int batteryRounded = (int) battery;
@@ -36,10 +36,10 @@ public class DroneAssignment {
 
 
 
-
-        System.out.println("Photos:  " + photos);
         photos %= 4;
-        System.out.println("Storage slots used:" + photos + " out of 4");
+        System.out.println("Photos:  " + photos);
+
+        System.out.println("Storage slots used:  " + photos + " out of 4");
 
         // TODO: Part 1 - Casting
         // Cast altitude (double) to int called displayAltitude
