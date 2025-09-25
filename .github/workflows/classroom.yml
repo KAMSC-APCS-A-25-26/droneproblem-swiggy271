@@ -1,0 +1,40 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Drone Test
+      id: drone-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Drone Test
+        setup-command: "./setup.sh"
+        command: "./tests/run.sh"
+        timeout: 10
+        max-score: 5
+    - name: Drone Debug Test
+      id: drone-debug-test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Drone Debug Test
+        setup-command: "./setup.sh"
+        command: "./tests/run-debug.sh"
+        timeout: 10
+        max-score: 5
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        DRONE-TEST_RESULTS: "${{steps.drone-test.outputs.result}}"
+        DRONE-DEBUG-TEST_RESULTS: "${{steps.drone-debug-test.outputs.result}}"
+      with:
+        runners: drone-test,drone-debug-test
