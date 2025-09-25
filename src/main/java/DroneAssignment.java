@@ -30,7 +30,7 @@ public class DroneAssignment {
         photos +=3;
 
         System.out.println("After taking 3 photos: " + photos);
-        altitude /= 2;
+        displayAltitude /= 2;
 
         System.out.println("After descending to half: " + displayAltitude);
 
