@@ -11,35 +11,35 @@ public class DroneAssignment {
         System.out.println("Initial Status:");
         System.out.println("Altitude: " + altitude + " meters");
         System.out.println("Battery: " + battery + "%");
-        System.out.println("Photos:  " + photos);
+        System.out.println("Photos: " + photos);
 
         int displayAltitude = (int) altitude;
         int batteryRounded = (int) battery;
 
-        System.out.println("\nDisplay altitude:  " + displayAltitude);
-        System.out.println("Battery rounded:  " + batteryRounded);
+        System.out.println("\nDisplay altitude: " + displayAltitude);
+        System.out.println("Battery rounded: " + batteryRounded);
 
-        altitude += 20;
+        displayAltitude += 20;
 
-        System.out.println("\nAfter climbing 20m:  " + altitude);
+        System.out.println("\nAfter climbing 20m: " + displayAltitude);
 
-        battery -= 15;
+        batteryRounded -= 15;
 
-        System.out.println("After battery drain:  " + battery);
+        System.out.println("After battery drain: " + batteryRounded);
 
         photos +=3;
 
-        System.out.println("After taking 3 photos:  " + photos);
+        System.out.println("After taking 3 photos: " + photos);
         altitude /= 2;
 
-        System.out.println("After descending to half:  " + altitude);
+        System.out.println("After descending to half: " + displayAltitude);
 
 
 
         photos %= 4;
-        System.out.println("Photos:  " + photos);
+        System.out.println("Photos: " + photos);
 
-        System.out.println("Storage slots used:  " + photos + " out of 4");
+        System.out.println("Storage slots used: " + photos + " out of 4");
 
         // TODO: Part 1 - Casting
         // Cast altitude (double) to int called displayAltitude
